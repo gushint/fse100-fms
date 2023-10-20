@@ -31,9 +31,11 @@ function draw() {
 
   circle(mouseX, mouseY, 10);
 
-  //hit = collidePointPoly(mouseX, mouseY, shape1);
+  hit = collidePointPoly(mouseX, mouseY, shape1);
   //hit = collidePointPoint(100, 100, 100, 100);
-  console.log("hit");
+  if(hit) {
+    console.log("Hit!")
+  }
   
   //quad(75, 200, 125, 100, 225, 100, 175, 200); 
   //square(155,155,155);
