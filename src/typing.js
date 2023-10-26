@@ -57,7 +57,7 @@ function checkSpelling() {
 }
 
 function backToMenu() {
-window.open('https://editor.p5js.org/ahinterm/full/qlSiC0d0f');
+window.open('/index.html');
 }
 
 function updateCurrentWord() {

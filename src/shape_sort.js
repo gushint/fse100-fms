@@ -63,8 +63,7 @@ function setup() {
   myButton.locate(250, 20);        //Position Button
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
-  this.color = "#AAAAFF";         //Change button color
-  alert("Yay!");                  //Show an alert message
+    window.open('/index.html');
   }
 
   parallelogramColor = (250, 50, 50);
@@ -75,7 +74,7 @@ function setup() {
 
   diamondMatch = false;
 
-  fireworks = loadImage("assets/giphy.gif")
+  fireworks = loadImage("/assets/giphy.gif")
 
   frameRate(240);
 }
