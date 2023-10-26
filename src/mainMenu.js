@@ -34,9 +34,9 @@ function credits() {
 }
   
 function toShapeSort() {
-    window.open('shape_sort.html')
+    window.open('/pages/shape_sort.html')
 }
 
 function toTyping() {
-  window.open('typing.html');
+  window.open('/pages/typing.html');
 }
