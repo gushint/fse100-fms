@@ -66,10 +66,11 @@ function setup() {
   createCanvas(600, 750);
 
   myButton = new Clickable();     //Create button
-  myButton.locate(20, 20);        //Position Button
+  myButton.locate(250, 20);        //Position Button
+  myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
-  this.color = "#AAAAFF";       //Change button color
-  alert("Yay!");                //Show an alert message
+  this.color = "#AAAAFF";         //Change button color
+  alert("Yay!");                  //Show an alert message
   }
 
   parallelogramColor = (250, 50, 50);
@@ -79,6 +80,8 @@ function setup() {
   triangleMatch = false;
 
   diamondMatch = false;
+
+  fireworks = loadImage("assets/giphy.gif")
 
   frameRate(240);
 }
@@ -212,6 +215,11 @@ function draw() {
       p5.Vector.sub(shape4a[3], shape4b[3]).mag() < 10) {
       diamondMatch = true;
   }
+
+  if (circleMatch && parallelogramMatch && triangleMatch && diamondMatch) {
+    image(fireworks, 80, 100);
+  }
+  
 
   myButton.draw();  
   
