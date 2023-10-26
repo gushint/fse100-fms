@@ -55,12 +55,6 @@ function preload() {
   shape4b[1] = createVector(500, 75);
   shape4b[2] = createVector(550, 150);
   shape4b[3] = createVector(500, 225);
-
-
-
-
-  
-  
 }
 function setup() {
   createCanvas(600, 750);
