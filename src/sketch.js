@@ -1,3 +1,10 @@
+// The green destination zone
+shape0g = [];
+
+// The blue destination zone
+shape0b = [];
+
+
 // The movable parallelogram
 shape1g = [];
 // The destination parallelogram
@@ -14,51 +21,62 @@ shape4g = [];
 shape4b = [];
 
 function preload() {
+  // Define initial position for green desination zone
+  shape0g[0] = createVector(0, 0);
+  shape0g[1] = createVector(600, 0); 
+  shape0g[2] = createVector(600, 500);
+  shape0g[3] = createVector(0, 500);
+
+  // Define initial position for blue desination zone
+  shape0b[0] = createVector(600, 0);
+  shape0b[1] = createVector(1200, 0);
+  shape0b[2] = createVector(1200, 500);
+  shape0b[3] = createVector(600, 500);
+
   // Define the initial position for green parallelogram
-  shape1g[0] = createVector(50, 650);
-  shape1g[1] = createVector(100, 550);
-  shape1g[2] = createVector(200, 550);
-  shape1g[3] = createVector(150, 650);
+  shape1g[0] = createVector(25, 650);
+  shape1g[1] = createVector(75, 550);
+  shape1g[2] = createVector(175, 550);
+  shape1g[3] = createVector(125, 650);
 
   // Define the initial position for the blue parallelogram
-  shape1b[0] = createVector(550, 650);
-  shape1b[1] = createVector(600, 550);
-  shape1b[2] = createVector(700, 550);
-  shape1b[3] = createVector(650, 650);
+  shape1b[0] = createVector(575, 650);
+  shape1b[1] = createVector(625, 550);
+  shape1b[2] = createVector(725, 550);
+  shape1b[3] = createVector(675, 650);
 
   mouseDiff = createVector(); // temp vec for randomPoly[]
 
   // Define initial position for the green circle
-  circleXg = 780;
+  circleXg = 800;
   circleYg = 600;
   
   // Define initial position for the blue circle
-  circleXb = 550;
-  circleYb = 500;
+  circleXb = 250;
+  circleYb = 600;
   
   
   // Define initial position for the green triangle
-  shape3g[0] = createVector(250, 500);
-  shape3g[1] = createVector(300, 400);
-  shape3g[2] = createVector(350, 500);
+  shape3g[0] = createVector(325, 650);
+  shape3g[1] = createVector(375, 550);
+  shape3g[2] = createVector(425, 650);
 
   // Define initial position for the blue triangle
-  shape3b[0] = createVector(250, 600);
-  shape3b[1] = createVector(300, 500);
-  shape3b[2] = createVector(350, 600);
+  shape3b[0] = createVector(900, 650);
+  shape3b[1] = createVector(950, 550);
+  shape3b[2] = createVector(1000, 650);
 
   // Define initial position for the green diamond
-  shape4g[0] = createVector(400, 600);
-  shape4g[1] = createVector(450, 525);
-  shape4g[2] = createVector(500, 600);
-  shape4g[3] = createVector(450, 675);
+  shape4g[0] = createVector(450, 600);
+  shape4g[1] = createVector(500, 525);
+  shape4g[2] = createVector(550, 600);
+  shape4g[3] = createVector(500, 675);
 
   // Define initial position for the blue diamond
-  shape4b[0] = createVector(400, 700);
-  shape4b[1] = createVector(450, 625);
-  shape4b[2] = createVector(500, 700);
-  shape4b[3] = createVector(450, 775);
-
+  shape4b[0] = createVector(1050, 600);
+  shape4b[1] = createVector(1100, 525);
+  shape4b[2] = createVector(1150, 600);
+  shape4b[3] = createVector(1100, 675);
 
 }
 
@@ -75,36 +93,77 @@ function setup() {
 
   fireworks = loadImage("assets/giphy.gif")
 
-  frameRate(240);
+  frameRate(500);
+
+  // Initialize variables for collision detection
+  parallelogramGreenMatch = false;
+  parallelogramBlueMatch = false;
+  circleGreenMatch = false;
+  circleBlueMatch = false;
+  triangleGreenMatch = false;
+  triangleBlueMatch = false;
+  diamondGreenMatch = false;
+  diamondBlueMatch = false;
 }
 
 function draw() {
+  var scribble = new Scribble();
+  randomSeed(5675);
+  
+
   background(120);
 
   // Draw the blue destination area
   fill(103, 64, 240);
-  rect(600, 0, 600, 500);
+  beginShape();
+  for (const { x, y } of shape0b)  vertex(x, y);
+  endShape(CLOSE);
   
   // Draw all the green shapes
   fill(178, 180, 5);
 
   // Draw the green destination area
-  rect(0, 0, 600, 500)
+  beginShape();
+  for (const { x, y } of shape0g)  vertex(x, y);
+  endShape(CLOSE);
 
+  if (parallelogramGreenMatch == true) {
+    console.log("true");
+    fill(50, 250, 50);
+  }
   // Draw the green parallelogram
   beginShape();
   for (const { x, y } of shape1g)  vertex(x, y);
   endShape(CLOSE);
 
+  if (parallelogramGreenMatch == true) {
+    fill(178, 180, 5);
+  }
 
-
+  if (circleGreenMatch) {
+    fill(50, 250, 50);
+  }
+  // Draw the green circle
   circle(circleXg, circleYg, 125);
+  if (circleGreenMatch) {
+    fill(178, 180, 5);
+  }
 
+  if (triangleGreenMatch) {
+    fill(50, 250, 50);
+  }
   // Draw the green triangle
   beginShape();
   for (const { x, y } of shape3g)  vertex(x, y);
   endShape(CLOSE);
 
+  if (triangleGreenMatch) {
+    fill(178, 180, 5);
+  }
+
+  if (diamondGreenMatch) {
+    fill(50, 250, 50);
+  }
   // Draw the green diamond
   beginShape();
   for (const { x, y } of shape4g)  vertex(x, y);
@@ -113,25 +172,49 @@ function draw() {
   // Draw all the blue shapes
   fill(103, 64, 240);
 
+  if (parallelogramBlueMatch == true) {
+    fill(50, 250, 50);
+  }
+
   // Draw the blue parallelogram
   beginShape();
   for (const { x, y } of shape1b)  vertex(x, y);
   endShape(CLOSE);
 
+  if (parallelogramBlueMatch == true) {
+    fill(103, 64, 240);
+  }
+
+  if (circleBlueMatch) {
+    fill(50, 250, 50);
+  }
   // Draw the blue circle
   circle(circleXb, circleYb, 125);
+  if (circleBlueMatch) {
+    fill(103, 64, 240);
+  }
 
+  if (triangleBlueMatch) {
+    fill(50, 250, 50);
+  }
   // Draw the blue triangle
   beginShape();
   for (const { x, y } of shape3b)  vertex(x, y);
   endShape(CLOSE);
+  if (triangleBlueMatch) {
+    fill(103, 64, 240);
+  }
 
+  if (diamondBlueMatch) {
+    fill(50, 250, 50);
+  }
   // Draw the blue diamond
   beginShape();
   for (const { x, y } of shape4b)  vertex(x, y);
   endShape(CLOSE);
-
-
+  if (diamondBlueMatch) {
+    fill(103, 64, 240);
+  }
 
   // Check if the mouse is over the parallelogram
   hitParallelogramGreen = collidePointPoly(mouseX, mouseY, shape1g);
@@ -142,7 +225,7 @@ function draw() {
     shape1g[2].set(mouseX + 75, mouseY - 50);
     shape1g[3].set(mouseX + 25, mouseY + 50);
   }
-  
+
   // Check if the mouse is hovering over the green circle
   hitCircleGreen = collidePointCircle(mouseX, mouseY, circleXg, circleYg, 125);
   // Move the circle with the mouse
@@ -206,6 +289,25 @@ function draw() {
     shape4b[1].set(mouseX, mouseY - 75);
     shape4b[2].set(mouseX + 50, mouseY);
     shape4b[3].set(mouseX, mouseY + 75);
+  }
+
+
+  parallelogramGreenMatch = collidePolyPoly(shape0g, shape1g, true);
+  parallelogramBlueMatch = collidePolyPoly(shape0b, shape1b, true);
+
+  circleGreenMatch = collideCirclePoly(circleXg, circleYg, 125, shape0g, true);
+  circleBlueMatch = collideCirclePoly(circleXb, circleYb, 125, shape0b, true);
+
+  triangleGreenMatch = collidePolyPoly(shape0g, shape3g, true);
+  triangleBlueMatch = collidePolyPoly(shape0b, shape3b, true);
+
+  diamondGreenMatch = collidePolyPoly(shape0g, shape4g, true);
+  diamondBlueMatch = collidePolyPoly(shape0b, shape4b, true);
+
+
+  if (parallelogramBlueMatch && parallelogramGreenMatch && circleBlueMatch && circleGreenMatch && triangleBlueMatch && triangleGreenMatch && diamondBlueMatch && diamondGreenMatch) {
+    image(fireworks, 80, 100);
+    image(fireworks, 600, 100);
   }
 
 }
