@@ -9,7 +9,7 @@ function setup() {
   drawButton2.position(160,140);
   drawButton2.mousePressed(toShapeSort);
   
-    var drawButton3 = createButton("activity 3");
+    var drawButton3 = createButton("Color Sort");
   drawButton3.position(160,180);
   drawButton3.mousePressed(gotoGame1);
   
@@ -27,7 +27,7 @@ function draw() {
 }
 
 function gotoGame1() {
-  window.open("https://editor.p5js.org/ahinterm/full/mIBNhnj1I");
+  window.open("/pages/color_sort.html");
 }
 function credits() {
   window.open("")
