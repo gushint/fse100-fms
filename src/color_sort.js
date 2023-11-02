@@ -91,10 +91,6 @@ function setup() {
     window.close();                  //Close the window since the main manu is still open in the previus tab
   }
 
-  fireworks = loadImage("assets/giphy.gif")
-
-  frameRate(500);
-
   // Initialize variables for collision detection
   parallelogramGreenMatch = false;
   parallelogramBlueMatch = false;
@@ -104,10 +100,14 @@ function setup() {
   triangleBlueMatch = false;
   diamondGreenMatch = false;
   diamondBlueMatch = false;
+
+  fireworks = loadImage("/assets/giphy.gif");
+
+  frameRate(500);
 }
 
 function draw() {
-  var scribble = new Scribble();
+  //var scribble = new Scribble();
   randomSeed(5675);
   
 
@@ -128,7 +128,6 @@ function draw() {
   endShape(CLOSE);
 
   if (parallelogramGreenMatch == true) {
-    console.log("true");
     fill(50, 250, 50);
   }
   // Draw the green parallelogram
@@ -306,6 +305,7 @@ function draw() {
 
 
   if (parallelogramBlueMatch && parallelogramGreenMatch && circleBlueMatch && circleGreenMatch && triangleBlueMatch && triangleGreenMatch && diamondBlueMatch && diamondGreenMatch) {
+    console.log("fireworks");
     image(fireworks, 80, 100);
     image(fireworks, 600, 100);
   }
