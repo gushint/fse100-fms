@@ -57,7 +57,7 @@ function checkSpelling() {
 }
 
 function backToMenu() {
-window.open('/index.html');
+  window.close();
 }
 
 function updateCurrentWord() {

@@ -63,8 +63,8 @@ function setup() {
   myButton.locate(250, 20);        //Position Button
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
-  this.color = "#AAAAFF";         //Change button color
-  alert("Yay!");                  //Show an alert message
+    this.color = "#AAAAFF";         //Change button color
+    window.close();                 //Close the window since the main manu is still open in the previus tab
   }
 
   parallelogramColor = (250, 50, 50);
