@@ -212,10 +212,11 @@ function draw() {
 
   if (circleMatch && parallelogramMatch && triangleMatch && diamondMatch) {
     image(fireworks, 80, 100);
+    myButton.draw();  
   }
   
 
-  myButton.draw();  
+  
   
 
   fill(250,250,250);

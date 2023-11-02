@@ -84,7 +84,7 @@ function setup() {
   createCanvas(1200, 750);
 
   myButton = new Clickable();     //Create button
-  myButton.locate(250, 20);        //Position Button
+  myButton.locate(550, 120);        //Position Button
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
     this.color = "#AAAAFF";         //Change button color
@@ -304,10 +304,12 @@ function draw() {
   diamondBlueMatch = collidePolyPoly(shape0b, shape4b, true);
 
 
-  if (parallelogramBlueMatch && parallelogramGreenMatch && circleBlueMatch && circleGreenMatch && triangleBlueMatch && triangleGreenMatch && diamondBlueMatch && diamondGreenMatch) {
-    console.log("fireworks");
+  if (parallelogramBlueMatch && parallelogramGreenMatch && 
+      circleBlueMatch && circleGreenMatch && triangleBlueMatch 
+      && triangleGreenMatch && diamondBlueMatch && diamondGreenMatch) {
     image(fireworks, 80, 100);
     image(fireworks, 600, 100);
+    myButton.draw();
   }
 
 }
