@@ -11,7 +11,7 @@ function setup() {
   
   var drawButton3 = createButton("Color Sort");
   drawButton3.position(160,180);
-  drawButton3.mousePressed(gotoGame1);
+  drawButton3.mousePressed(toColorSort);
 
   var drawButton4 = createButton("Block Stack");
   drawButton4.position(160,220);
@@ -19,27 +19,31 @@ function setup() {
   
   var drawButton5 = createButton("Settings");
   drawButton5.position(160,260);
-  drawButton5.mousePressed(gotoGame1);
+  drawButton5.mousePressed(toSettings);
   
   var drawButton6 = createButton("Credits");
   drawButton6.position(160,320);
-  drawButton6.mousePressed(gotoGame1);
+  drawButton6.mousePressed(credits);
 }
 
 function draw() {
   background(48,172,217)
 }
 
-function gotoGame1() {
+function toColorSort() {
   window.open("/pages/color_sort.html");
 }
 function credits() {
-  window.open("")
+  window.open("/pages/credits.html");
+}
+function toSettings() {
+  window.open("");
 }
   
 function toShapeSort() {
     window.open('/pages/shape_sort.html')
 }
+
 
 function toTyping() {
   window.open('/pages/typing.html');
