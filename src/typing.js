@@ -1,4 +1,4 @@
-const words = ["imagine", "fine", "motor", "skills", "creation", "typing", "fun", "math", "opening", "sleep", "editor", "sketch", "easy", "omnipotent"];
+const words = ['happy', 'fun', 'play', 'friend', 'smile', 'laugh', 'joy', 'color', 'sweet', 'magic', 'candy', 'sunshine', 'puppy', 'kitty', 'rainbow', 'butterfly', 'sparkle', 'giggle', 'bounce', 'gummy', 'hug', 'dream', 'wonder', 'merry', 'snuggle', 'daisy', 'twinkle', 'song', 'treat', 'cuddle', 'jolly', 'playful', 'storybook', 'giggly', 'cherish', 'glisten', 'whisper', 'grin', 'delight', 'lullaby', 'peaches', 'fluffy', 'soar', 'treasure', 'peekaboo', 'silly', 'glimmer', 'snicker', 'munchkin'];
 let input, button, message, currentWord, word, feedback, score, scoreboard, yaySound, wrongSound;
 function preload() {
     yaySound = loadSound('yay_effect.mp3');
@@ -57,7 +57,7 @@ function checkSpelling() {
 }
 
 function backToMenu() {
-  window.close();
+  window.location.href = "https://fse100-fms.pages.dev/";
 }
 
 function updateCurrentWord() {

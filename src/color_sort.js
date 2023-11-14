@@ -19,7 +19,7 @@ shape3b = [];
 shape4g = [];
 // The destination diamond
 shape4b = [];
-
+let instructions;
 function preload() {
   // Define initial position for green desination zone
   shape0g[0] = createVector(0, 0);
@@ -88,8 +88,10 @@ function setup() {
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
     this.color = "#AAAAFF";         //Change button color
-    window.close();                  //Close the window since the main manu is still open in the previus tab
+    window.location.href = "https://fse100-fms.pages.dev/";
   }
+  instructions = createElement('h3', "Drag the Shapes of the same color to the position with the same color.");
+  instructions.position(350, 50);
 
   // Initialize variables for collision detection
   parallelogramGreenMatch = false;
@@ -309,7 +311,8 @@ function draw() {
       && triangleGreenMatch && diamondBlueMatch && diamondGreenMatch) {
     image(fireworks, 80, 100);
     image(fireworks, 600, 100);
-    myButton.draw();
   }
+
+  myButton.draw();
 
 }
