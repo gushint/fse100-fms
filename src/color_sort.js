@@ -88,7 +88,7 @@ function setup() {
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
     this.color = "#AAAAFF";         //Change button color
-    window.close();                  //Close the window since the main manu is still open in the previus tab
+    window.location.href = "https://fse100-fms.pages.dev/";
   }
   instructions = createElement('h3', "Drag the Shapes of the same color to the position with the same color.");
   instructions.position(350, 50);

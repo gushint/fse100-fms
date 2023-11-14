@@ -64,7 +64,7 @@ function setup() {
   myButton.locate(250, 20);        //Position Button
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
-    window.close();
+    window.location.href = "https://fse100-fms.pages.dev/";
   }
   instructions = createElement('h3', "Drag the Shapes on the Left to the Same Shape on the right.");
   instructions.position(400, 25);

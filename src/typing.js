@@ -57,7 +57,7 @@ function checkSpelling() {
 }
 
 function backToMenu() {
-  window.close();
+  window.location.href = "https://fse100-fms.pages.dev/";
 }
 
 function updateCurrentWord() {
