@@ -28,78 +28,81 @@ l8a = [];
 l9a = [];
 
 function preload() {
-// Level 1 blocks
-// left most block
-// (-500,-500) (-425,-500)
-// (-500,-425) (-425,-425)
+    // Level 1 blocks
+    // left most block
+    // (-500,-500) (-425,-500)
+    // (-500,-425) (-425,-425)
 
-direction = "right";
+    direction = "right";
 
-l1_top = 75;
-l1_bottom = 150;
+    l1_top = 75;
+    l1_bottom = 150;
 
-l1a_left = 226;
-// this is the furtest right line
-l1a_right = 301;
+    l1a_left = 226;
+    // this is the furtest right line
+    l1a_right = 301;
 
-l1a[0] = createVector(l1a_right,l1_bottom);
-l1a[1] = createVector(l1a_left,l1_bottom);
-l1a[2] = createVector(l1a_left,l1_top);
-l1a[3] = createVector(l1a_right,l1_top);
+    l1a[0] = createVector(l1a_right,l1_bottom);
+    l1a[1] = createVector(l1a_left,l1_bottom);
+    l1a[2] = createVector(l1a_left,l1_top);
+    l1a[3] = createVector(l1a_right,l1_top);
 
-l1b_left = 151;
-l1b_right = 226;
-l1b[0] = createVector(l1b_right, l1_bottom);
-l1b[1] = createVector(l1b_left, l1_bottom);
-l1b[2] = createVector(l1b_left, l1_top);
-l1b[3] = createVector(l1b_right, l1_top);
+    l1b_left = 151;
+    l1b_right = 226;
+    l1b[0] = createVector(l1b_right, l1_bottom);
+    l1b[1] = createVector(l1b_left, l1_bottom);
+    l1b[2] = createVector(l1b_left, l1_top);
+    l1b[3] = createVector(l1b_right, l1_top);
 
-l1c_left = 76;
-l1c_right = 151;
-l1c[0] = createVector(l1c_right, l1_bottom);
-l1c[1] = createVector(l1c_left, l1_bottom);
-l1c[2] = createVector(l1c_left, l1_top);
-l1c[3] = createVector(l1c_right, l1_top);
+    l1c_left = 76;
+    l1c_right = 151;
+    l1c[0] = createVector(l1c_right, l1_bottom);
+    l1c[1] = createVector(l1c_left, l1_bottom);
+    l1c[2] = createVector(l1c_left, l1_top);
+    l1c[3] = createVector(l1c_right, l1_top);
 
-// This is the furthest left line
-l1d_left = 1;
-l1d_right = 76;
-l1d[0] = createVector(l1d_right, l1_bottom);
-l1d[1] = createVector(l1d_left, l1_bottom);
-l1d[2] = createVector(l1d_left, l1_top);
-l1d[3] = createVector(l1d_right, l1_top);
+    // This is the furthest left line
+    l1d_left = 1;
+    l1d_right = 76;
+    l1d[0] = createVector(l1d_right, l1_bottom);
+    l1d[1] = createVector(l1d_left, l1_bottom);
+    l1d[2] = createVector(l1d_left, l1_top);
+    l1d[3] = createVector(l1d_right, l1_top);
 
-l2_top = 11150;
-l2_bottom = 11225;
+    l2_top = 11150;
+    l2_bottom = 11225;
 
-l2a_left = 151;
-// This is the furtest right line
-l2a_right = 226;
-l2a[0] = createVector(l2a_right, l2_bottom);
-l2a[1] = createVector(l2a_left, l2_bottom);
-l2a[2] = createVector(l2a_left, l2_top);
-l2a[3] = createVector(l2a_right, l2_top);
+    l2a_left = 151;
+    // This is the furtest right line
+    l2a_right = 226;
+    l2a[0] = createVector(l2a_right, l2_bottom);
+    l2a[1] = createVector(l2a_left, l2_bottom);
+    l2a[2] = createVector(l2a_left, l2_top);
+    l2a[3] = createVector(l2a_right, l2_top);
 
-l2b_left = 76;
-l2b_right = 151;
-l2b[0] = createVector(l2b_right, l2_bottom);
-l2b[1] = createVector(l2b_left, l2_bottom);
-l2b[2] = createVector(l2b_left, l2_top);
-l2b[3] = createVector(l2b_right, l2_top);
+    l2b_left = 76;
+    l2b_right = 151;
+    l2b[0] = createVector(l2b_right, l2_bottom);
+    l2b[1] = createVector(l2b_left, l2_bottom);
+    l2b[2] = createVector(l2b_left, l2_top);
+    l2b[3] = createVector(l2b_right, l2_top);
 
-// This is the furthest left line
-l2c_left = 1;
-l2c_right = 76;
-l2c[0] = createVector(l2c_right, l2_bottom);
-l2c[1] = createVector(l2c_left, l2_bottom);
-l2c[2] = createVector(l2c_left, l2_top);
-l2c[3] = createVector(l2c_right, l2_top);
-
-
-level = 1;
-dropping = false;
+    // This is the furthest left line
+    l2c_left = 1;
+    l2c_right = 76;
+    l2c[0] = createVector(l2c_right, l2_bottom);
+    l2c[1] = createVector(l2c_left, l2_bottom);
+    l2c[2] = createVector(l2c_left, l2_top);
+    l2c[3] = createVector(l2c_right, l2_top);
 
 
+    level = 1;
+    dropping = false;
+
+    yaySound = loadSound('yay_effect.mp3');
+    wrongSound = loadSound('wrong_effect.mp3');
+
+    isGameOver = false;
 }
 
 
@@ -149,7 +152,6 @@ function draw() {
     if (dropping == true) {
         if (level - 1 == 1) {
             if (l1a[0].array()[1] < 750) {
-                console.log("dropping");
                 l1a = drop(l1a);
                 l1b = drop(l1b);
                 l1c = drop(l1c);
@@ -158,9 +160,12 @@ function draw() {
                 dropping = false;
             }
         } else if (level - 1 == 2) {
+            console.log("dropping");
             drop(l2a);
             drop(l2b);
-            drop(l2c);
+            drop(l2c);  
+            
+            dropping = checkBlockCollision(l2b, l1a, l1d);
         }
     }
 
@@ -195,16 +200,18 @@ function check_wall_collision(left, right, direction) {
 }
 
 function keyPressed() {
-    if (keyCode === ENTER) {
-        level += 1;
-        dropping = true;
-    }
-    if (level == 2) {
-        console.log(l2a);
-        spawnBlock(11075, l2a);
-        console.log(l2a);
-        spawnBlock(11075, l2b);
-        spawnBlock(11075, l2c);
+    if (isGameOver == false) {
+        if (keyCode === ENTER) {
+            level += 1;
+            dropping = true;
+        }
+        if (level == 2) {
+            //console.log(l2a);
+            spawnBlock(11075, l2a);
+            //console.log(l2a);
+            spawnBlock(11075, l2b);
+            spawnBlock(11075, l2c);
+        }
     }
 }
 
@@ -261,3 +268,28 @@ function actualDraw() {
 }
 
 
+function checkBlockCollision(newBlock, rightMostBlock, leftMostBlock) {
+    newBlockCenter = (newBlock[0].array()[0] - newBlock[1].array()[0]) / 2;
+    if (newBlockCenter <= rightMostBlock[0].array()[0] && newBlockCenter >= leftMostBlock[1].array()[0]) {
+        console.log("checking dropping")
+        if (newBlock[0].array()[1] <= rightMostBlock[2].array()[1]) {
+            
+            return false;
+        } else {
+            
+            return true;
+        }
+    } else {
+        
+        if (newBlock[2].array()[1] > 780) {
+            gameOver();
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+function gameOver() {
+    wrongSound.play();
+}
