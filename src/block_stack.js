@@ -147,23 +147,21 @@ function draw() {
         move(direction, 10, l2c);
     }
 
-    //console.log(level); 
-
     if (dropping == true) {
         if (level - 1 == 1) {
             if (l1a[0].array()[1] < 750) {
-                l1a = drop(l1a);
-                l1b = drop(l1b);
-                l1c = drop(l1c);
-                l1d = drop(l1d);
+                l1a = drop(l1a, -8);
+                l1b = drop(l1b, -8);
+                l1c = drop(l1c, -8);
+                l1d = drop(l1d, -8);
             } else {
                 dropping = false;
             }
         } else if (level - 1 == 2) {
             console.log("dropping");
-            drop(l2a);
-            drop(l2b);
-            drop(l2c);  
+            drop(l2a, -8);
+            drop(l2b, -8);
+            drop(l2c, -8);  
             
             dropping = checkBlockCollision(l2b, l1a, l1d);
         }
@@ -206,18 +204,16 @@ function keyPressed() {
             dropping = true;
         }
         if (level == 2) {
-            //console.log(l2a);
             spawnBlock(11075, l2a);
-            //console.log(l2a);
             spawnBlock(11075, l2b);
             spawnBlock(11075, l2c);
         }
     }
 }
 
-function drop(block) {
+function drop(block, distance) {
     for (let i = 0; i < block.length; i++) { 
-        block[i] = block[i].sub(0, -8);
+        block[i] = block[i].sub(0, distance);
     }
     return block;
 }
@@ -269,11 +265,12 @@ function actualDraw() {
 
 
 function checkBlockCollision(newBlock, rightMostBlock, leftMostBlock) {
-    newBlockCenter = (newBlock[0].array()[0] - newBlock[1].array()[0]) / 2;
+    //console.log(newBlock[0].array()[0]);
+    newBlockCenter = (newBlock[0].array()[0] + newBlock[1].array()[0]) / 2;
+    
     if (newBlockCenter <= rightMostBlock[0].array()[0] && newBlockCenter >= leftMostBlock[1].array()[0]) {
-        console.log("checking dropping")
-        if (newBlock[0].array()[1] <= rightMostBlock[2].array()[1]) {
-            
+        console.log("checking dropping");
+        if (newBlock[0].array()[1] >= rightMostBlock[2].array()[1]) {
             return false;
         } else {
             
