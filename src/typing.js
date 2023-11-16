@@ -1,35 +1,40 @@
 const words = ['happy', 'fun', 'play', 'friend', 'smile', 'laugh', 'joy', 'color', 'sweet', 'magic', 'candy', 'sunshine', 'puppy', 'kitty', 'rainbow', 'butterfly', 'sparkle', 'giggle', 'bounce', 'gummy', 'hug', 'dream', 'wonder', 'merry', 'snuggle', 'daisy', 'twinkle', 'song', 'treat', 'cuddle', 'jolly', 'playful', 'storybook', 'giggly', 'cherish', 'glisten', 'whisper', 'grin', 'delight', 'lullaby', 'peaches', 'fluffy', 'soar', 'treasure', 'peekaboo', 'silly', 'glimmer', 'snicker', 'munchkin'];
-let input, button, message, currentWord, word, feedback, score, scoreboard, yaySound, wrongSound;
+let input, button, message, currentWord, word, feedback, score, scoreboard, yaySound, wrongSound,img;
 function preload() {
     yaySound = loadSound('yay_effect.mp3');
     wrongSound = loadSound('wrong_effect.mp3');
+    img = loadImage('typingbg.jpg');
 }
 
 function setup() {
   preload();
-  createCanvas(400, 400);
-  wordMessage = createElement('h2', "Enter the Word: ");
+  createCanvas(600, 600);
+  wordMessage = createElement('h1', "Enter the Word: ");
   updateCurrentWord();
-  feedback = createElement('h2', '');
+  feedback = createElement('h1', '');
   score = 0;
-  scoreBoard = createElement('h2',"Score: " + score.toString());
-  scoreBoard.position(270,200)
-  feedback.position(150,200);
-  wordMessage.position(200,150);
+  scoreBoard = createElement('h1',"Score: " + score.toString());
+  scoreBoard.position(450,300)
+  feedback.position(450,200);
+  wordMessage.position(450,150);
   
   input = createInput('');
-  input.position(200,200);
+  input.position(450,300);
+  //input.size(500);
   formButton();
-  textAlign(CENTER);
+  //textAlign(CENTER);
   createBackButton();
+  background(img);
   
 }
 
-function draw() {}
+function draw() {
+  background(img);
+}
 
 function formButton() {
    button = createButton('Check');
-  button.position(input.x + input.width + 2, 200);
+  button.position(input.x + input.width + 2, 300);
   button.mousePressed(checkSpelling);
 }
 
