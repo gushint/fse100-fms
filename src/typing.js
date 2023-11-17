@@ -32,6 +32,12 @@ function draw() {
   background(img);
 }
 
+function keyPressed() {
+  if (keyCode == ENTER) {
+    checkSpelling();
+  }
+}
+
 function formButton() {
    button = createButton('Check');
   button.position(input.x + input.width + 2, 300);
