@@ -61,7 +61,7 @@ function setup() {
   createCanvas(600, 750);
 
   myButton = new Clickable();     //Create button
-  myButton.locate(250, 20);        //Position Button
+  myButton.locate(250, 120);        //Position Button
   myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
   myButton.onPress = function(){  //When myButton is pressed
     window.location.href = "https://fse100-fms.pages.dev/";
@@ -214,15 +214,15 @@ function draw() {
 
   if (circleMatch && parallelogramMatch && triangleMatch && diamondMatch) {
     image(fireworks, 80, 100);
-    myButton.draw();  
   }
   
 
   
-  
+  myButton.draw();  
 
   fill(250,250,250);
   circle(mouseX, mouseY, 10);
+
 }
 
 
