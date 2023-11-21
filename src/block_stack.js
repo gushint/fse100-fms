@@ -195,13 +195,22 @@ function preload() {
 function setup() {
     createCanvas(900, 750);
 
-    myButton = new Clickable();     //Create button
-    myButton.locate(750, 10);        //Position Button
-    myButton.text = "Return to\nmain menu";    //Set the text displayed in the button
-    myButton.onPress = function(){  //When myButton is pressed
+    backButton = new Clickable();     //Create button
+    backButton.locate(750, 10);        //Position Button
+    backButton.text = "Return to\nmain menu";    //Set the text displayed in the button
+    backButton.onPress = function(){  //When backButton is pressed
         this.color = "#AAAAFF";         //Change button color
         window.close();                  //Close the window since the main manu is still open in the previus tab
     }
+
+    restartButton = new Clickable();     //Create button
+    restartButton.locate(600, 10);        //Position Button
+    restartButton.text = "Restart";    //Set the text displayed in the button
+    restartButton.onPress = function(){  //When backButton is pressed
+        this.color = "#c12aa6";         //Change button color
+        location.reload();                 
+    }
+    
 
     fireworks = loadImage("/assets/giphy.gif");
 
@@ -331,13 +340,18 @@ function draw() {
         background(120);
         fill(255, 255, 255);
         textSize(50);
-        text("Game Over", 300, 300);
+        textAlign(CENTER);
+        text("Game Over", 450, 300);
+        backButton.draw();     
+        restartButton.draw();
     } else if (gameWon) {
         background(120);
         image(fireworks, 0, 0, 900, 750);
         fill(255, 255, 255);
         textSize(50);
         text("You Win!", 300, 300);
+        backButton.draw();     
+        restartButton.draw();
     }
 
 }
@@ -370,35 +384,36 @@ function check_wall_collision(left, right, direction) {
 }
 
 function keyPressed() {
-    if (isGameOver == false) {
+    if (isGameOver == false && dropping == false) {
         if (keyCode === ENTER) {
             level += 1;
             dropping = true;
             direction = "right";
-        }
-        if (level == 2) {
-            spawnBlock(11075, l2a);
-            spawnBlock(11075, l2b);
-            spawnBlock(11075, l2c);
-        } else if (level == 3) {
-            spawnBlock(22250, l3a);
-            spawnBlock(22250, l3b);
-            spawnBlock(22250, l3c);
-        } else if (level == 4) {
-            spawnBlock(33350, l4a);
-            spawnBlock(33350, l4b);
-        } else if (level == 5) {
-            spawnBlock(44425, l5a);
-            spawnBlock(44425, l5b);
-        } else if (level == 6) {
-            spawnBlock(55500, l6a);
-            spawnBlock(55500, l6b);
-        } else if (level == 7) {
-            spawnBlock(66575, l7a);
-        } else if (level == 8) {
-            spawnBlock(77650, l8a);
-        } else if (level == 9) {
-            spawnBlock(88750, l9a);
+
+            if (level == 2) {
+                spawnBlock(11075, l2a);
+                spawnBlock(11075, l2b);
+                spawnBlock(11075, l2c);
+            } else if (level == 3) {
+                spawnBlock(22250, l3a);
+                spawnBlock(22250, l3b);
+                spawnBlock(22250, l3c);
+            } else if (level == 4) {
+                spawnBlock(33350, l4a);
+                spawnBlock(33350, l4b);
+            } else if (level == 5) {
+                spawnBlock(44425, l5a);
+                spawnBlock(44425, l5b);
+            } else if (level == 6) {
+                spawnBlock(55500, l6a);
+                spawnBlock(55500, l6b);
+            } else if (level == 7) {
+                spawnBlock(66575, l7a);
+            } else if (level == 8) {
+                spawnBlock(77650, l8a);
+            } else if (level == 9) {
+                spawnBlock(88750, l9a);
+            }
         }
     }
 }
@@ -421,7 +436,10 @@ function actualDraw() {
     // Display the current level to the user
     fill(255, 255, 255);
     textSize(32);
-    text("Level: " + level, 10, 30);
+    text("Level: " + level, 70, 45);
+    textSize(16);
+    textAlign(CENTER)
+    text("Instructions:\nWait for the block to move left and right to the position you want\nPress enter to drop the block\nStack the blocks on top of each other!", 450, 650);
 
     fill(103, 64, 240);
     beginShape();
@@ -490,7 +508,8 @@ function actualDraw() {
     for (const { x, y } of l9a)  vertex(x, y);
     endShape(CLOSE);
 
-    myButton.draw();                //Draw the button
+    backButton.draw();                //Draw the button
+    restartButton.draw();                //Draw the button
 }
 
 
