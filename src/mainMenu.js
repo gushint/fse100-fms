@@ -1,6 +1,8 @@
 let img;
 function setup() {
   createCanvas(400, 420);
+
+
   var drawButton = createButton("Typing");
   drawButton.position(160,100);
   drawButton.mousePressed(toTyping);
@@ -24,6 +26,10 @@ function setup() {
 
 function draw() {
   background(48,172,217)
+  textFont("Comic Sans MS");
+  textSize(20);
+  textAlign(CENTER);
+  text("NIPIO FMS", 200, 50);
 }
 
 function toColorSort() {
