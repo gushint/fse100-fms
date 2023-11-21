@@ -17,10 +17,6 @@ function setup() {
   drawButton4.position(160,220);
   drawButton4.mousePressed(toBlockStack);
   
-  var drawButton5 = createButton("Settings");
-  drawButton5.position(160,260);
-  drawButton5.mousePressed(toSettings);
-  
   var drawButton6 = createButton("Credits");
   drawButton6.position(160,320);
   drawButton6.mousePressed(credits);
