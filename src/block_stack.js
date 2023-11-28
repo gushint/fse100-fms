@@ -519,7 +519,7 @@ function checkBlockCollision(newBlock, newBlockCenter, rightMostBlock, leftMostB
     if (newBlockCenter <= rightMostBlock[0].array()[0] && newBlockCenter >= leftMostBlock[1].array()[0]) {
         //console.log("checking dropping");
         if (newBlock[0].array()[1] >= rightMostBlock[2].array()[1]) {
-            if (level == 9) {
+            if (level == 10) {
                 gameWin();
             }
             return false;
